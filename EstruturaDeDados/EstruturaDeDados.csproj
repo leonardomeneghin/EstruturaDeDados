@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Anticorruption\Integrations\" />
     <Folder Include="Business\" />
-    <Folder Include="DataAccess\" />
     <Folder Include="Data\DTO\" />
     <Folder Include="Data\VO\" />
     <Folder Include="Repository\" />
