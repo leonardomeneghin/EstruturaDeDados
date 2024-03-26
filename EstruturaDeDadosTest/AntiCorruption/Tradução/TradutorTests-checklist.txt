@@ -6,3 +6,4 @@
 [x] Duas traduções com mesma palavra
 [x] Traduzir três sinônimos
 [x] Traduzir uma frase completa
+[] Traduct entire phrase but one word has two traductions
