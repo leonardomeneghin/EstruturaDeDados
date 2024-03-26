@@ -3,5 +3,6 @@
 [x] Tradutor sem palavras
 [x] Tradução de uma palavra (adicionar e traduzir)
 [X] Tradução de duas palavra (adicionar e traduzir) sem perder tradução anterior.
-[] Duas traduções com mesma palavra
-[] Traduzir uma frase completa
+[x] Duas traduções com mesma palavra
+[x] Traduzir três sinônimos
+[x] Traduzir uma frase completa

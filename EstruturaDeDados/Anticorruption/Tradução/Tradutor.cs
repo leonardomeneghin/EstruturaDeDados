@@ -15,7 +15,10 @@ namespace EstruturaDeDados.Anticorruption.Tradução
         }
         public void AddTraduction(string key, string value)
         {
-            storedTraductions.Add(key, value);
+            if (storedTraductions.ContainsKey(key))
+                storedTraductions[key] = Traduct(key) + ", " + value;
+            else
+                storedTraductions.Add(key, value);
         }
 
         public bool IsEmpty()
@@ -23,9 +26,21 @@ namespace EstruturaDeDados.Anticorruption.Tradução
             return storedTraductions.Count == 0;
         }
 
-        public string Traduzir(string word)
+        public string Traduct(string word)
         {
             return storedTraductions.Where(x => x.Key.Equals(word)).Select(x => x.Value).FirstOrDefault();
+        }
+
+        public string TraductPhrase(string frase)
+        {
+            string[] words = frase.Split(" ");
+            string traductedPhrase = "";
+            foreach (string word in words)
+            {
+                string traducao = Traduct(word);
+                traductedPhrase += " " + traducao;
+            }
+            return traductedPhrase.Trim();
         }
     }
 }

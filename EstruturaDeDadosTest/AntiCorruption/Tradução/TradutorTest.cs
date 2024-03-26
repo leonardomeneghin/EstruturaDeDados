@@ -20,7 +20,7 @@ namespace EstruturaDeDadosTest.AntiCorruption.Tradução
             _tradutor.AddTraduction("bom", "good");
 
 
-            Assert.That(_tradutor.Traduzir("bom"), Is.EqualTo("good"));
+            Assert.That(_tradutor.Traduct("bom"), Is.EqualTo("good"));
             Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
         }
         [Test]
@@ -29,7 +29,7 @@ namespace EstruturaDeDadosTest.AntiCorruption.Tradução
             _tradutor.AddTraduction("ruim", "bad");
 
 
-            Assert.That(_tradutor.Traduzir("ruim"), Is.EqualTo("bad"));
+            Assert.That(_tradutor.Traduct("ruim"), Is.EqualTo("bad"));
             Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
         }
         [Test]
@@ -39,8 +39,44 @@ namespace EstruturaDeDadosTest.AntiCorruption.Tradução
             _tradutor.AddTraduction("bom", "good");
 
 
-            Assert.That(_tradutor.Traduzir("ruim"), Is.EqualTo("bad"));
-            Assert.That(_tradutor.Traduzir("bom"), Is.EqualTo("good"));
+            Assert.That(_tradutor.Traduct("ruim"), Is.EqualTo("bad"));
+            Assert.That(_tradutor.Traduct("bom"), Is.EqualTo("good"));
+            Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
+        }
+        [Test]
+        public void TwoTraductionsSameWord()
+        {
+            _tradutor.AddTraduction("ruim", "bad");
+            _tradutor.AddTraduction("ruim", "poor");
+
+
+            Assert.That(_tradutor.Traduct("ruim"), Is.EqualTo("bad, poor"));
+            Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
+        }
+
+        [Test]
+        public void ThreeTraductionsSameWord()
+        {
+            _tradutor.AddTraduction("ruim", "bad");
+            _tradutor.AddTraduction("ruim", "poor");
+            _tradutor.AddTraduction("ruim", "inferior");
+
+
+            Assert.That(_tradutor.Traduct("ruim"), Is.EqualTo("bad, poor, inferior"));
+            Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
+        }
+
+        [Test]
+        public void TraductEntirePhrase()
+        {
+            var phrase = "";
+
+            _tradutor.AddTraduction("guerra", "war");
+            _tradutor.AddTraduction("é", "is");
+            _tradutor.AddTraduction("ruim", "bad");
+
+
+            Assert.That(_tradutor.TraductPhrase("guerra é ruim"), Is.EqualTo("war is bad"));
             Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
         }
     }
