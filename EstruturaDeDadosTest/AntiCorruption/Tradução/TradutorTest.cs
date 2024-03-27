@@ -79,5 +79,20 @@ namespace EstruturaDeDadosTest.AntiCorruption.Tradução
             Assert.That(_tradutor.TraductPhrase("guerra é ruim"), Is.EqualTo("war is bad"));
             Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
         }
+
+        [Test]
+        public void TraductEntirePhraseTwoTraductionsAtSameWord()
+        {
+            var phrase = "";
+
+            _tradutor.AddTraduction("guerra", "war");
+            _tradutor.AddTraduction("é", "is");
+            _tradutor.AddTraduction("ruim", "bad");
+            _tradutor.AddTraduction("ruim", "poor");
+
+
+            Assert.That(_tradutor.TraductPhrase("guerra é ruim"), Is.EqualTo("war is bad"));
+            Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
+        }
     }
 }
