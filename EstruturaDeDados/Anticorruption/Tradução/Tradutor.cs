@@ -37,10 +37,18 @@ namespace EstruturaDeDados.Anticorruption.Tradução
             string traductedPhrase = "";
             foreach (string word in words)
             {
-                string traducao = Traduct(word);
+                string traducao = GetFirstTraduction(word);
                 traductedPhrase += " " + traducao;
             }
             return traductedPhrase.Trim();
+        }
+
+        private string GetFirstTraduction(string word)
+        {
+            string traducao = Traduct(word);
+            if (traducao.Contains(","))
+                traducao = traducao.Substring(0, traducao.IndexOf(","));
+            return traducao;
         }
     }
 }
