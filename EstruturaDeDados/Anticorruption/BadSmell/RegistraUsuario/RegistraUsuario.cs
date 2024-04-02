@@ -64,6 +64,7 @@ namespace EstruturaDeDados.Anticorruption.BadSmell.RegistraUsuario
                 {
                     throw new UsuarioJaRegistradoException($"Já existe um usuário registrado com o nome {nome}, por favor utilize outro nome de usuário.");
                 }
+                _usuarios.Add(usuario);
 
             }
             catch (UsuarioComNomeVazioException ex)
