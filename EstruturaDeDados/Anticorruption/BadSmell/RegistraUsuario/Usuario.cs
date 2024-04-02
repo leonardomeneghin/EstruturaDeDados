@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstruturaDeDados.Anticorruption.BadSmell
+namespace EstruturaDeDados.Anticorruption.BadSmell.RegistraUsuario
 {
     public class Usuario
     {

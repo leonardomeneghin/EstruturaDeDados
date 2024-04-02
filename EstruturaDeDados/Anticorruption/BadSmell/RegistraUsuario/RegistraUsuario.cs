@@ -1,11 +1,11 @@
-﻿using EstruturaDeDados.Anticorruption.BadSmell.Exceptions;
+﻿using EstruturaDeDados.Anticorruption.BadSmell.RegistraUsuario.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstruturaDeDados.Anticorruption.BadSmell
+namespace EstruturaDeDados.Anticorruption.BadSmell.RegistraUsuario
 {
     public class RegistraUsuario
     {
@@ -20,7 +20,7 @@ namespace EstruturaDeDados.Anticorruption.BadSmell
             {
                 if (nome != null)
                 {
-                    if(!string.IsNullOrEmpty(nome))
+                    if (!string.IsNullOrEmpty(nome))
                     {
                         Usuario usuario = new Usuario(nome);
                         if (!_usuarios.Contains(usuario))
@@ -55,7 +55,7 @@ namespace EstruturaDeDados.Anticorruption.BadSmell
                 throw new UsuarioJaRegistradoException(ex.Message);
             }
 
-            
+
         }
     }
 }
