@@ -14,7 +14,7 @@ namespace EstruturaDeDados.Anticorruption.BadSmell.RegistraUsuario
         {
             _usuarios = new List<Usuario>();
         }
-        public void OLDregistraUsuarios(string nome)
+        public void OLDRegistraUsuarios(string nome)
         {
             try
             {
@@ -54,8 +54,30 @@ namespace EstruturaDeDados.Anticorruption.BadSmell.RegistraUsuario
             {
                 throw new UsuarioJaRegistradoException(ex.Message);
             }
+        }
+        public void RegistraUsuarios(string nome)
+        {
+            try
+            {
+                Usuario usuario = new Usuario(nome);
+                if (_usuarios.Contains(usuario))
+                {
+                    throw new UsuarioJaRegistradoException($"Já existe um usuário registrado com o nome {nome}, por favor utilize outro nome de usuário.");
+                }
 
-
+            }
+            catch (UsuarioComNomeVazioException ex)
+            {
+                throw new UsuarioComNomeVazioException(ex.Message);
+            }
+            catch (UsuarioInexistenteException ex)
+            {
+                throw new UsuarioInexistenteException(ex.Message);
+            }
+            catch (UsuarioJaRegistradoException ex)
+            {
+                throw new UsuarioJaRegistradoException(ex.Message);
+            }
         }
     }
 }

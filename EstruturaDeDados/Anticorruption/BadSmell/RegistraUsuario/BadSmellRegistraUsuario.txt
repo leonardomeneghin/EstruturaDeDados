@@ -1,0 +1,10 @@
+﻿### Code smells da classe RegistraUsuario.cs
+
+1. ifs aninhados [RESOLVIDO]
+	São ilegíveis e contra intuitivos.
+
+2. Bloater Method [RESOLVIDO]
+	O método está grande, novas melhorias criariam um bloater pior, seria prudente:
+		- Delegar a responsabilidade de verificar a Exception de nome vazio ou nulo para a classe Usuário, pois isso estaria do lado do usuário.
+
+3. Uso excessivo de negações (!isUser) [RESOLVIDO]
