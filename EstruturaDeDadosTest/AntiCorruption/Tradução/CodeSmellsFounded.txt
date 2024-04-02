@@ -1,0 +1,15 @@
+﻿### Inside Tests
+TradutorTest.cs
+1. 	Todos os testes precisam seguir o padrão When-Then que expressam um caso de uso
+	Exemplo: WhenAlgoAconteceThenAlgoReage
+
+
+### Inside Business Rules
+Tradutor.cs
+1. Método AddTraduction
+	Eu faria um return; no if para remover o else e permitir que o fluxo interrompa, reduzindo quantidade de código.
+
+2. storedTraductions eu trocaria para o nome _storedTraductions demonstrando ser um campo da classe.
+
+3.Faria uma verificação de nulo para keys e values a fim de evitar dados errados.
+	Usaria isso no AddTraduction

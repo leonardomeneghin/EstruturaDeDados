@@ -28,7 +28,9 @@ namespace EstruturaDeDados.Anticorruption.Tradução
 
         public string Traduct(string word)
         {
-            return storedTraductions.Where(x => x.Key.Equals(word)).Select(x => x.Value).FirstOrDefault();
+            return storedTraductions
+                .Where(x => x.Key.Equals(word))
+                .Select(x => x.Value).FirstOrDefault();
         }
 
         public string TraductPhrase(string frase)

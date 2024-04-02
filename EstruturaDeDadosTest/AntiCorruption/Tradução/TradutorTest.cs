@@ -94,5 +94,18 @@ namespace EstruturaDeDadosTest.AntiCorruption.Tradução
             Assert.That(_tradutor.TraductPhrase("guerra é ruim"), Is.EqualTo("war is bad"));
             Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
         }
+        [Test]
+        public void VerifyKeyValueNull()
+        {
+            var phrase = "";
+
+            _tradutor.AddTraduction("nullValue", null);
+            _tradutor.AddTraduction(null, "null is key");
+
+
+
+            Assert.That(_tradutor.TraductPhrase("nullValue"), Is.EqualTo(null));
+            Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
+        }
     }
 }
