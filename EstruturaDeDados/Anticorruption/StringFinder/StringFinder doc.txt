@@ -1,0 +1,33 @@
+﻿### Casos de teste a partir de responsabilidades.
+Para este módulo do sistema, vamos criar um caso de teste a partir de uma responsabilidade da classe.
+
+O que é a classe:
+
+Classe StringFinder procura em uma cadeia de string, um caractere do tipo string e deve retornar a quantidade de ocorrências daquele caracter.
+
+### Casos de teste para a classe StringFinder
+
+### CTs válidos
+
+	- ct1. String com 1 char em uma sentença simples
+		[(sentença complexa com 2 "e", string "e"), 2, 2]
+
+	- ct2 String com outro char em uma sentença complexa
+		[(sentença complexa com 5 "s", string "s"), 5, 5]
+
+	- ct3 String com outro char em mais que uma sentença
+		[(três sentenças com 3 "n", string "n"), 3, 3]
+
+### CTs inválidos
+	- ct4. String a procurar tem 2 chars, sentença é inválida
+		[(sentença string "sh"), Exception, Exception]
+	- ct5; String a procurar tem 3 chars, sentença valida
+		[(sentença string "cse"), Exception, Exception]
+	- ct6 String a procurar é nulo, sentença é válida
+		[(sentença, string null), Exception, Exception]
+	- ct7 String a procurar é vazio, sentença válida
+		[(sentença, string ""), Exception, Exception]
+	- ct8 Sentença é nula, string não importa
+		[(null, string), Exception, Exception]
+	- ct9 Sentença é vazia, string não importa
+		[("", string), Exception, Exception]
