@@ -1,4 +1,5 @@
-﻿using EstruturaDeDados.Anticorruption.Tradução;
+﻿using EstruturaDeDados.Anticorruption.DataStructures.Pilha;
+using EstruturaDeDados.Anticorruption.Tradução;
 namespace EstruturaDeDadosTest.AntiCorruption.Tradução
 {
     public class TradutorTest
@@ -98,14 +99,13 @@ namespace EstruturaDeDadosTest.AntiCorruption.Tradução
         public void VerifyKeyValueNull()
         {
             var phrase = "";
-
-            _tradutor.AddTraduction("nullValue", null);
-            _tradutor.AddTraduction(null, "null is key");
-
-
-
-            Assert.That(_tradutor.TraductPhrase("nullValue"), Is.EqualTo(null));
-            Assert.That(_tradutor.IsEmpty(), Is.EqualTo(false));
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                _tradutor.AddTraduction("nullValue", null);
+                _tradutor.AddTraduction(null, "null is key");
+                
+            });
+          
         }
     }
 }

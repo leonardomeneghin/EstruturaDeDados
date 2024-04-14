@@ -15,6 +15,9 @@ namespace EstruturaDeDados.Anticorruption.Tradução
         }
         public void AddTraduction(string key, string value)
         {
+            if (key is null || value is null)
+                throw new ArgumentNullException(nameof(key))
+                    ;
             if (storedTraductions.ContainsKey(key))
                 storedTraductions[key] = Traduct(key) + ", " + value;
             else
@@ -47,6 +50,7 @@ namespace EstruturaDeDados.Anticorruption.Tradução
 
         private string GetFirstTraduction(string word)
         {
+
             string traducao = Traduct(word);
             if (traducao.Contains(","))
                 traducao = traducao.Substring(0, traducao.IndexOf(","));
